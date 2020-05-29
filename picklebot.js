@@ -6,15 +6,15 @@ client.once('ready', () => {
 });
 
 
-bot.on('guildMemberAdd', member => {
-    \\code to check if a user account is newly made within 5 minutes and if so to ban them
+\\ when a new member joins, this code checks to see how old the account is and bans if its under 5 minutes old
+client.on('guildMemberAdd', member => {
+    ]
 if (Date.now() - user.CreatedAt <= 300) {
 	guildMember.ban({ days: 14, reason: 'New Account' })
 	.then(console.log)
 	.catch(console.error);
 
 }}
-\\ still need to encapsulate this if statement above in a check for when new users join the server
 	
 
 client.login('token');
