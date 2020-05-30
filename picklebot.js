@@ -29,7 +29,7 @@ client.once('ready', () => {
 });
 
 
-\\ when a new member joins, this code checks to see how old the account is and bans if its under 5 minutes old
+// when a new member joins, this code checks to see how old the account is and bans if its under 5 minutes old
 client.on('guildMemberAdd', member => {
 	if (Date.now() - user.CreatedAt <= 600) {
 	guildMember.ban({ days: 14, reason: 'New Account' })
