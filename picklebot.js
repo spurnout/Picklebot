@@ -34,7 +34,8 @@ client.on('guildMemberAdd', member => {
     ]
 if (Date.now() - user.CreatedAt <= 300) {
 	guildMember.ban({ days: 14, reason: 'New Account' })
-	.then(console.log)
+	const channel = member.guild.channels.cache.find(ch => ch.name === 'mod-command-logs');
+	.then(console.log(channel));
 	.catch(console.error);
 
 }}
