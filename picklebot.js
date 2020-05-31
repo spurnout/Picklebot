@@ -29,7 +29,7 @@ client.on("ready", () => {
 });
 
 client.on("message", (message) => {
-  if (message.content.startsWith("ping")) {
+    if (message.content.startsWith("ping")) {
     message.channel.send("pong!");
   }
 });
@@ -37,6 +37,17 @@ client.on("message", (message) => {
 client.on("guildMemberAdd", (member) => {
     if (Date.now() - member.user.createdAt <= 300000) {
         member.ban({ days: 7, reason: 'New account' })
+    }
+});
+
+client.on("guildMemberAdd", (member) => {
+	const defaultURLs = ["https://cdn.discordapp.com/embed/avatars/0.png",
+		"https://cdn.discordapp.com/embed/avatars/1.png",
+		"https://cdn.discordapp.com/embed/avatars/2.png",
+		"https://cdn.discordapp.com/embed/avatars/3.png",
+		"https://cdn.discordapp.com/embed/avatars/4.png"]
+	if (member.user.defaultAvatarURL.includes(defaultURLs)) {
+        member.ban({ days: 7, reason: 'No Profile Pic' })
     }
 });
 
