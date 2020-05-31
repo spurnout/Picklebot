@@ -41,8 +41,13 @@ client.on("guildMemberAdd", (member) => {
 });
 
 client.on("guildMemberAdd", (member) => {
-    if (member.user.defaultAvatarURL === NULL) {
-	member.ban({ days: 7, reason: 'New account' })
+	const defaultURLs = ["https://cdn.discordapp.com/embed/avatars/0.png",
+		"https://cdn.discordapp.com/embed/avatars/1.png",
+		"https://cdn.discordapp.com/embed/avatars/2.png",
+		"https://cdn.discordapp.com/embed/avatars/3.png",
+		"https://cdn.discordapp.com/embed/avatars/4.png"]
+	if (member.user.defaultAvatarURL.includes(defaultURLs)) {
+        member.ban({ days: 7, reason: 'No Profile Pic' })
     }
 });
 
