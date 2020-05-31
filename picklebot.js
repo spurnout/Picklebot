@@ -2,7 +2,6 @@
 Auto ban new accounts made within 5 minutes that join
 Auto kick new accounts that do not have a profile pic with a DM to that user to add a pfp before joining again
 Create a human verification system so instead of a reaction to the rules, they get a DM, react to it there, and then a random 4 number combination will be shown in emojis that they will need to type out to be verified as human to receive the Basic role, on my server that's Kidult
-
 */
 
 
@@ -21,23 +20,24 @@ module.exports = {
 	'!': '❗', '?': '❓',
 };
 */
-const Discord = require('discord.js');
+
+const Discord = require("discord.js");
 const client = new Discord.Client();
 
-client.once('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+client.on("ready", () => {
+  console.log("I am ready!");
 });
 
+client.on("message", (message) => {
+  if (message.content.startsWith("ping")) {
+    message.channel.send("pong!");
+  }
+});
 
-// when a new member joins, this code checks to see how old the account is and bans if its under 5 minutes old
-client.on('guildMemberAdd', member => {
-	if (Date.now() - user.CreatedAt <= 600) {
-	guildMember.ban({ days: 14, reason: 'New Account' })
-	const channel = member.guild.channels.cache.find(ch => ch.name === 'mod-command-logs');
-	.then(console.log(channel));
-	.catch(console.error);
+client.on("guildMemberAdd", (member) => {
+    if (Date.now() - member.user.createdAt <= 300000) {
+        member.ban({ days: 7, reason: 'New account' })
+    }
+});
 
-}}
-	
-
-client.login('token');
+client.login("Token");
