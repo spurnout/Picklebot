@@ -1,7 +1,7 @@
 {
-  "name": "discord.js",
-  "version": "12.2.0",
-  "description": "Javascript library to interface with the Discord API",
+  "name": "picklebot.js",
+  "version": "1.0.0",
+  "description": "Picklebot",
   "main": "Picklebot.js",
   "dependencies": {
     "discord.js": "^12.2.0"
