@@ -4,6 +4,7 @@ Auto kick new accounts that do not have a profile pic with a DM to that user to 
 Create a human verification system so instead of a reaction to the rules, they get a DM, react to it there, and then a random 4 number combination will be shown in emojis that they will need to type out to be verified as human to receive the Basic role, on my server that's Kidult
 */
 
+
 /* saving this for the future, it will allow me to add human verification in the future using a random number or letter combo and have them type it out
 module.exports = {
 	a: '🇦', b: '🇧', c: '🇨', d: '🇩',
@@ -34,16 +35,16 @@ client.on("ready", () => {
   console.log("I am ready!");
 });
 
-client.on("message", message => {
+client.on("message", (message) => {
   if (message.content.startsWith("ping")) {
     message.channel.send("pong!");
   }
 });
 
-client.on("guildMemberAdd", member => {
-  if (Date.now() - member.user.createdAt <= 300000) {
-    member.ban({ days: 7, reason: "New account" });
-  }
+client.on("guildMemberAdd", (member) => {
+    if (Date.now() - member.user.createdAt <= 300000) {
+        member.ban({ days: 7, reason: 'New account' })
+    }
 });
 
 client.on("guildMemberAdd", member => {
@@ -52,4 +53,4 @@ client.on("guildMemberAdd", member => {
   }
 });
 
-client.login("Token");
+client.login("NzE1NzEwMjM1Njc5MTI5NzMy.XtLltw.2S-AnmdDIwssW_JLvB1d7nT51eQ");
