@@ -48,7 +48,7 @@ client.on("guildMemberAdd", (member) => {
 });
 
 client.on("guildMemberAdd", member => {
-  if (defaultURLs.includes(member.user.defaultAvatarURL)) {
+  if (defaultURLs.includes(member.user.displayAvatarURL)) {
     member.ban({ days: 7, reason: "No Profile Pic" });
   }
 });
